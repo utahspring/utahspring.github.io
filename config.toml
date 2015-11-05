@@ -1,0 +1,30 @@
+baseurl = "http://utahspring.github.io"
+languageCode = "en-us"
+title = "Utah Spring Users Group"
+builddrafts = true
+copyright = "Copyright (c) 2013 - 2015, Utah Spring Users Group; all rights reserved."
+canonifyurls = true
+theme = "hugo-incorporated"
+# SectionPagesMenu = "main"
+
+[permalinks]
+    # Optional. Change the permalink format for the 'post' content type.
+    # The format shown here is the same one Jekyll/Octopress uses by default.
+    post = "/post/:year/:month/:title/"
+
+[indexes]
+    # Optional. Use if you want tags and lists.
+    category = "categories"
+
+[params]
+	# see https://github.com/nilproductions/hugo-incorporated/blob/master/config.yaml
+	[params.inc]
+	title = "Utah Spring Users Group"
+	subtitle = "Wasatch Front Spring Enthusiates"
+	logo = "spring.png"
+	#cover_image = "spring-cover.png"
+	cover_image = "homepage-bg.jpg"
+
+  github = "utahspring"
+  # meetup = "utahspring"
+  about_link = "/about"

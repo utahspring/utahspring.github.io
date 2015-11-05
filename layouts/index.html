@@ -1,0 +1,51 @@
+{{ partial "header.html" . }}
+
+<style>
+
+.icon-meetup {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADKUlEQVRYR8VXP0wTURj/vjP0iCgQ/9HWDmUwMS6iiRQdpANGE5cSjbqoaHTQRVh0EqtMDgZcdIAYjIsYDSwkmDC0DlgwQRg0RgeaWEoJSloQ5Eq4Z76nd7m213tHa9OXtMN9/37v+/N77yHYXDPehlo57fADSAGVqV4JsYExqCFzREipjE1JKEUB1CHFkQ7VR6eSdlyjSGnO2eRlEgQBWEALKLIhQAA4hCoEXYlI1Eo/LwDacYUiBxHgliiglZwBPF6XlWC+jJgCiO090oCq1A8AB4sJbrCdZpLa5pn9MJXtLwcABZeYFLKbbrsAeZ+g6s8GkQGgVME1kGYgdABUc4cih/5j2vMlZzotK36tJ3QAMZevp9iGs1sOakzP3Hg7H2H6o1FTkc3YdWDUk6q3w56JQZCqt8H652+w1NkNytik0JXEsJ5GlAOIu5v6GWOXhVYmCrU9d2HrudO6ZPXVMCTbu4SuEPG5Ox5pw78MJ0cL7Xrnl1G+e+OKu5tsAICU4lC8GHc3BhjDwXwWu948BcfRQ1y89vYdLF65ratWnmqGHc8e5pj+PHvTVhkQWSuK0u+ORzICLF69A2sjYf4tO/2a4vKjPqCfaFEZMOZqDCFgcz7lbAAbsQTMNwa4et3EEGzxOHNM0+8/wo8zN0TxgQELY9ztS1rVPxsAeU12dPEU142bV05d+gWJ/S1CAERMOOvyMStNMwCUhVRnd0b9qfuN07Bw4hKsf/oqBlEIAPJKIIzpn/e1ZmSEsrQ6MCwGUEgJzLzS6O0efQEVB/Zx8UrfAM+S1eIl2EwT0hhWnjxu6pMA1DzogKpr57mcWHGh5aIlgH9NaM2CRqJJ3esB+dhhUxAEgGQ7Xz/Rg4oIiY/hZoiIZnuld0DnfuP2tGBGwCJC4kQkomIj2WgEU3X9AtTc54dZTrrN9M3qQPXnVExCKzbUglHXEw1ro0UNRyfhxvc5+D0ShpXelzyOkZ6t+kA/jMiomOPYbHfEkOrSMqTHJvNOQsZxTE7KeiEhAGW/kvEslOhGrJXJ8lKqKZUKhK1ruRFE2R4mGoiyPs2Mo1W2x2n2fJfqef4Ho7PPBriNH2QAAAAASUVORK5CYII=);
+    background-size:15px;
+    width:15px;
+    height:15px;
+}
+
+</style>
+
+<div class="blog-cover" style="background-image:url(/images/{{ .Site.Params.inc.cover_image }});">
+
+    <section>
+        <div class="container">
+            <h1>{{ .Site.Params.inc.title }}</h1>
+            {{ with .Site.Params.inc.subtitle }}<h3>{{ . }}</h3>{{ end }}
+
+            {{ with .Site.Params.inc.twitter }}
+            <a href="https://twitter.com/{{ . }}" title="Follow on Twitter" target="_blank"><i class="icon icon-twitter"></i></a>
+            {{ end }}
+            {{ with .Site.Params.inc.github }}
+            <a href="https://github.com/{{ . }}" title="Follow on Github" target="_blank"><i class="icon icon-github"></i></a>
+            {{ end }}
+            {{ with .Site.Params.inc.facebook }}
+            <a href="http://facebook.com/{{ . }}" title="Like on Facebook" target="_blank"><i class="icon icon-facebook"></i></a>
+            {{ end }}
+            {{ with .Site.Params.inc.meetup }}
+            <a href="http://meetup.com/{{ . }}" title="Join on Meetup" target="_blank"><i class="icon icon-meetup"></i></a>
+            {{ end }}
+            <a href="/index.xml" title="RSS Feed">
+                <i class="icon icon-rss"></i>
+            </a>
+        </div>
+    </section>
+</div>
+
+
+<article class="container">
+  {{ range first 10 .Data.Pages }}
+  {{ if ne .Section "" }}
+    {{ .Render "summary" }}
+  {{ end }}
+  {{ end }}
+</article>
+<section class="pagination" style="text-align:center">
+  <a href="/post/" class="btn btn-outline">Archives</a>
+</section>
+{{ partial "footer.html" . }}
