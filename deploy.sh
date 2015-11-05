@@ -6,6 +6,7 @@ echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
 hugo # if using a theme, replace by `hugo -t <yourtheme>`
 
 # cp CNAME public/
+cp README.md public/
 
 # Go To Public folder
 cd public
